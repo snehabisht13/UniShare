@@ -1,12 +1,9 @@
 const mongoose = require('mongoose');
 const Grid = require('gridfs-stream');
 
-const mongoURI = 'mongodb://127.0.0.1:27017/unishare';
+const mongoURI = process.env.ATLASDB_URL;
 
-const conn = mongoose.createConnection(mongoURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+const conn = mongoose.createConnection(mongoURI);
 
 let gfs;
 conn.once('open', () => {
