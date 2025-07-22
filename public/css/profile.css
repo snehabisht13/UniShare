@@ -1,0 +1,55 @@
+body{
+  height: 100%;
+
+}
+
+.sidebar {
+  min-height: 10vh;
+  /* background-color: #f0f4f8; */
+  border-right: 1px solid #ccc;
+  padding-top: 30px;
+}
+
+.sidebar a {
+  display: block;
+  padding: 12px 20px;
+  margin: 5px 10px;
+  color: #001f3f;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.sidebar a.active,
+.sidebar a:hover {
+  background-color: #001f3f;
+  color: white;
+}
+
+.form-control{
+    background-color: #edebeb;
+}
+
+i{
+  margin-right: 20px;
+}
+
+.user-profile img{
+  width: 80px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 50%;
+ border: 1px solid #ccc;
+}
+
+.user-profile{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (max-width: 768px){
+  .content{
+    min-height: 50vh;
+  }
+}

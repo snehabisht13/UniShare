@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Junior Profile | UniShare</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="/css/navbar.css" />
+  <link rel="stylesheet" href="/css/profile.css" />
+</head>
+
+<body>
+  <%- include('../includes/navbar') %>
+
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3 sidebar">
+          <h5 class="mb-4  pt-3 text-center">Menu</h5>
+          <a href="#" class="nav-link active"><i class="fa-solid fa-user"></i>Profile</a>
+          <a href="/profile/updatePassword" class="nav-link"><i class="fa-solid fa-key"></i>Change Password</a>
+          <%if(role==="Junior" ){%>
+            <a href="/profile/junior/saved" class="nav-link"><i class="fa-solid fa-bookmark"></i>Saved Notes</a>
+            <%} else {%>
+              <a href="/profile/senior/uploads" class="nav-link"><i class="fa-solid fa-upload"></i>Uploaded Notes</a>
+              <%}%>
+        </div>
+        <!-- Profile Info -->
+        <div class="col-md-9 p-5">
+          <div class="user-profile">
+            <h3 class="mb-4 fw-bold text-primary"> Edit Profile</h3>
+          </div>
+         
+          <form action="/profile/editProfile/<%=user.id%>" method="POST">
+            <div class="mb-3">
+              <label class="form-label">Name</label>
+              <input type="text" class="form-control" value="<%= user.name %>" name="name">
+            </div>
+              <%if(role == "Senior"){%>
+            <div class="mb-3">
+            <label class="form-label">Introduction</label>
+            <input type="text" class="form-control" value="<%=user.quote%>" name="quote">
+          </div>
+          <%}%>
+          <div class="mb-3">
+            <label class="form-label">Phone number</label>
+            <input type="tel" class="form-control" value="<%= user.phoneNumber %>" name="phoneNumber">
+          </div>
+
+            <%if(role==="Junior" ){%>
+              <div class="mb-3">
+                <label class="form-label">Current Year</label>
+                <input type="number" class="form-control" value="<%= user.currentYear %>" min="1" max="4"
+                  name="currentYear">
+              </div>
+              <%}%>
+
+                <button class="btn btn-primary">Update</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <%- include('../includes/footer') %>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

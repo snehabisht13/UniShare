@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-md-2 sidebar">
+        <h5>Dashboard</h5>
+        <a href="/admin/dashboard" style="background-color: #001f3f; color: white;">
+            <i class="bi bi-hourglass-split me-2"></i>  Pending</a>
+        <a href="/admin/juniors"><i class="bi bi-person me-2"></i>  Juniors</a>
+        <a href="/admin/seniors"><i class="bi bi-person-check me-2"></i>  Seniors</a>
+        <a href="/home"><i class="bi bi-house-door"></i>  Home</a>
+      </div>
+
+      <!-- Main Content -->
+      <div class="col-md-10 main-content">
+        <h3 style="margin-bottom: 30px;">Pending Senior Verifications</h3>
+        <table class="table table-striped table-bordered">
+          <thead class="table-secondary">
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Graduation Year</th>
+              <th>College ID</th>
+              <th>Phone Number</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% seniors.forEach(senior => { %>
+              <tr>
+                <td><input type="text" value="<%= senior.name %>" readonly></td>
+                <td><input type="email" value="<%= senior.email %>" readonly></td>
+                <td><input type="text" value="<%= senior.graduationYear %>" readonly></td>
+                <td><a href="<%= senior.collegeIdUrl %>" target="_blank">View ID</a></td>
+                <td><input type="text" value="<%= senior.phoneNumber %>" readonly></td>
+                <td>
+                  <form action="/admin/verify/<%= senior._id %>?action=accept" method="POST" style="display:inline;">
+                    <button class="btn btn-success btn-sm" type="submit">Accept</button>
+                  </form>
+                  <form action="/admin/verify/<%= senior._id %>?action=reject" method="POST" style="display:inline;">
+                    <button class="btn btn-danger btn-sm" type="submit">Reject</button>
+                  </form>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+</body>
+</html>

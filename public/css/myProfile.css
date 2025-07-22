@@ -1,0 +1,98 @@
+
+    body {
+      background: linear-gradient(to right, #f8f9fa, #e0e7ff);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .glass-card {
+      backdrop-filter: blur(8px);
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 1rem;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .profile-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .profile-header img {
+      width: 130px;
+      height: 130px;
+      object-fit:contain;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+    }
+
+    .profile-header h2{
+      color: rgb(61, 61, 247);
+    }
+
+    .note-card {
+      transition: transform 0.2s ease;
+    }
+
+    .note-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .btn-outline-primary {
+      border-radius: 30px;
+    }
+
+    h4.section-title {
+      font-weight: 600;
+      margin-top: 30px;
+    }
+    .quote {
+      width: 200px;
+      text-align: center;
+    }
+    .quote p{
+      text-align:left;
+    }
+    .quote h5{
+      color: #053b72;
+    }
+
+    @media (max-width: 768px){
+      .quote{
+       display: none;
+      }
+      .profile-header img{
+        width: 70px;
+        height: 70px;
+        margin-right: 3px;
+      }
+      .note-card{
+        width: 300px;
+        margin: 0 auto;
+      }
+    }
+    
+    .glass-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .intro-text {
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 767.98px) {
+      .query-btn {
+        width: 100%;
+      }
+    }

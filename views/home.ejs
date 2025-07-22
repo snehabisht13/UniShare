@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/navbar.css">
+  <link rel="stylesheet" href="/css/notification.css">
+</head>
+
+<body class="bg-white fade-out">
+  <%-include('./includes/navbar')%>
+  <div id="notification"></div>
+    <section class="home mt-3 slide-in">
+      <div class="home-left">
+        <h1>Access Notes<br>From Verified Seniors.</h1>
+        <p>UniShare connects juniors to curated academic notes, verified by your college seniors and approved by
+          admins.</p>
+        <%if(!currUser) {%>
+          <form class="email-signup" action="/user/login">
+            <input type="email" placeholder="Enter your college email" />
+            <button type="submit">Get Started</button>
+          </form>
+          <%}%>
+            <div class="trusted-by">
+              <p>Trusted by students from:</p>
+              <img src="/Images/Photo1.png" alt="College 1">
+              <img src="/Images/Photo2.png" alt="College 2">
+
+            </div>
+      </div>
+
+      <div class="home-right ">
+        <h4>Recently Uploaded</h4>
+        <%for(let note of notes){%>
+          <div class="note-card">
+            <img src="<%=note.image%>" alt="img">
+            <p><strong>Subject : <%=note.subject%></strong></p>
+            <p>By: <%=note.uploadedBy.name%> <br> On: <%=(note.uploadedAt).toLocaleDateString()%>
+            </p>
+
+            <a href="/notes/<%= note.fileUrl %>" target="_blank"><button class="btn btn-secondary download-btn">View
+                Note</button></a>
+          </div>
+          <%}%>
+      </div>
+    </section>
+
+
+
+    <!-- SECTION 1: How UniShare Works -->
+    <section class="steps-section slide-in">
+      <h2>Start learning smarter with UniShare</h2>
+      <div class="steps-container">
+        <div class="step-box">
+          <h3>1</h3>
+          <p><strong>Create an account</strong><br>Sign up using your college email to access UniShare.</p>
+        </div>
+        <div class="step-box">
+          <h3>2</h3>
+          <p><strong>Browse notes</strong><br>Search or filter notes shared by verified seniors.</p>
+        </div>
+        <div class="step-box">
+          <h3>3</h3>
+          <p><strong>Download & Learn</strong><br>View, download and save notes for your semester prep.</p>
+        </div>
+      </div> <br>
+    </section>
+
+    <!-- SECTION 2: Stats / Impact -->
+    <section class="stats-section slide-in">
+      <h5 class="small-header">OUR MISSION</h5>
+      <h2>Helping students across campuses</h2>
+      <p>Trusted by thousands of students and seniors from top colleges in India.</p>
+      <div class="stats-grid">
+        <div>
+          <h3>12K+</h3>
+          <p>Notes Uploaded</p>
+        </div>
+        <div>
+          <h3>25K+</h3>
+          <p>Downloads</p>
+        </div>
+        <div>
+          <h3>95%</h3>
+          <p>Satisfaction</p>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Add this in your HTML file -->
+    <section class="why-unishare bg-light slide-in">
+      <div class="whyuni">
+        <div class="why">
+          <h1>Why Juniors Prefer UniShare</h1>
+        </div>
+        <div class="tagline">
+          <p>UniShare connects juniors with curated academic notes shared by verified seniors.
+            Access subject-wise resources, chat with contributors, and study smarter — all in one trusted platform.</p>
+        </div>
+      </div>
+      <div class="feature-cards">
+
+        <div class="feature-card ">
+          <h6>📘Topic & Subject-wise Notes</h6>
+          <p>Access organized notes uploaded by ID-verified seniors. Browse by semester, subject, or topic.</p>
+        </div>
+
+        <div class="feature-card ">
+          <h6>💬Chat with Seniors</h6>
+          <p>Need clarification? Instantly message the uploader and get your doubts solved in real-time.</p>
+        </div>
+
+        <div class="feature-card ">
+          <h6>🌟Rate Notes</h6>
+          <p>If a note helped you, rate it! Help others find the most useful content faster.</p>
+        </div>
+
+        <div class="feature-card ">
+          <h6>🎯Save Time, Study Smart</h6>
+          <p>No more endless searches. Find exactly what you need — trusted, high-quality notes all in one place.</p>
+        </div>
+
+      </div>
+    </section>
+
+   
+            <!-- footer -->
+            <%-include('includes/footer')%>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+
+<script src="/JS/transition.js"></script>
+<script src="/JS/notification.js"></script>
+<script>
+  const message = "<%=message%> ";
+  const type = "<%=type%> ";
+  showNotification(message,type);
+</script>
+</html>

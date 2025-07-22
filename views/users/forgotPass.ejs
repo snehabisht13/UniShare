@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/notification.css">
+</head>
+
+<body class="bg-light">
+    <%-include("../includes/navbar")%>
+    <div id="notification"></div>
+    <div class="page-wrapper">
+        <main class="content">
+        <div class="login forget" style="width:400px;">
+            <h3>Reset password</h3>
+            <div id="otpMessage" class="alert alert-success py-1 mt-2" style="display: none;">
+                OTP has been sent to email
+            </div>
+            <form action="/user/verify-otp-reset" method="POST">
+                <div class="row">
+                    <div class="input-box">
+                        <label for="email"></label>
+                        <input type="email" id="email" name="email" required placeholder="Enter email id" />
+                    </div>
+                    <div class="form-control" style="border: none;">
+                        <select name="role" id="role" class="form-select text-muted">
+                            <option value="">Select role</option>
+                            <option value="Junior">Junior</option>
+                            <option value="Senior">Senior</option>
+                        </select>
+                    </div>
+                    <div class="input-box">
+                        <label for="password"></label>
+                        <input type="password" id="password" name="password" required
+                            placeholder="Enter new password" />
+                    </div>
+                    <div class="input-box" style="display: none;" id="otpSection">
+                        <label for="otpSection"></label>
+                        <input type="number" name="otpSection" placeholder="Enter OTP">
+                    </div>
+                </div>
+                <button type="button" class="button-auth" id="otpsendbtn">Send OTP</button>
+                <button type="submit" class="button-auth" style="display: none;" id="submit">Change password</button>
+            </form>
+        </div>
+        </main>
+        <%-include('../includes/footer')%>
+        </div>
+</body>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <script src="../JS/reset.js"></script>
+    <script src="/JS/notification.js"></script>
+    <script>
+        const message = "<%=message%> ";
+        const type = "<%=type%>";
+        showNotification(message, type);
+    </script>
+
+</html>

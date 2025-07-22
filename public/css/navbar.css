@@ -1,0 +1,85 @@
+.nav-link {
+    transition: all 0.3s ease-in-out;
+    color: darkblue;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #0056b3;
+}
+.navbar-brand{
+    font-family: fantasy; 
+    color: grey; 
+    font-size: small; 
+    margin-left: 8px;
+}
+
+/* footer */
+.footer {
+  background-color: #001f3f; /* Deep navy */
+  color: #ffffff;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+html,body{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.page-wrapper{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content{
+  flex: 1;
+}
+
+
+.footer-content h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.footer-content p {
+  font-size: 14px;
+  margin: 8px 0;
+}
+
+.footer-links {
+  margin: 20px 0;
+}
+
+.footer-links a {
+  color: #ffffff;
+  margin: 0 12px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #00bfff; /* Light blue on hover */
+}
+
+.footer-credit {
+  font-size: 12px;
+  margin-top: 20px;
+  color: #cccccc;
+}
+
+@media (max-width: 768px) {
+  .navbar-nav {
+    text-align: center;
+  }
+
+  .navbar-nav .nav-item {
+    margin: 10px 0;
+  }
+}

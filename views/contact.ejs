@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/navbar.css">
+</head>
+<body class="bg-light">
+<%-include('includes/navbar')%>
+
+<div class="container mt-3"><!-- Header Banner -->
+<div style="background-color: #001f3f; padding: 20px 0; color: white; text-align: center;">
+  <div class="container">
+    <h4 class="fw-bold mb-1">Contact UniShare Team</h4>
+    <p class="mb-0" style="font-size: 14px;">Have questions or need help? Reach out to our core members directly.</p>
+  </div>
+</div>
+<!-- Contact Section -->
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <!-- Admin Card -->
+    <div class="col-md-5 col-lg-4 mb-4">
+      <div class="card shadow-sm border-0 rounded-4 p-3 h-100">
+        <h5 class="text-primary fw-bold">👩‍💼 Admin</h5>
+        <p class="mb-1"><strong>Name:</strong> Sneha Bisht</p>
+        <p class="mb-1"><strong>Email:</strong> <a href="mailto:snehabisht115@gmail.com">snehabisht115@gmail.com</a></p>
+        <p class="mb-1"><strong>Phone:</strong> +91 98765 43210</p>
+      </div>
+    </div>
+
+    <!-- Team Members -->
+    <% const team = [
+      { name: "Aman Singh", email: "aman@unishare.com", phone: "+91 91234 56789" },
+      { name: "Ritika Sharma", email: "ritika@unishare.com", phone: "+91 99887 76655" },
+      { name: "Raj Mehta", email: "raj@unishare.com", phone: "+91 88776 55443" },
+      { name: "Neha Verma", email: "neha@unishare.com", phone: "+91 77665 44332" }
+    ]; %>
+
+    <% team.forEach(member => { %>
+      <div class="col-md-5 col-lg-4 mb-4">
+        <div class="card shadow-sm border-0 rounded-4 p-3 h-100">
+          <h5 class="text-secondary fw-semibold">👤 <%= member.name %></h5>
+          <p class="mb-1"><strong>Email:</strong> <a href="mailto:<%= member.email %>"><%= member.email %></a></p>
+          <p class="mb-1"><strong>Phone:</strong> <%= member.phone %></p>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</div>
+</div>
+
+<%-include('includes/footer')%>
+</body>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+    crossorigin="anonymous"></script>
+</html>

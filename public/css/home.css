@@ -1,0 +1,269 @@
+.home{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.home-left {
+    /* border: 1px solid black; */
+    width: 60%;
+    height: 400px;
+    padding: 50px;
+    color: #1D2256;
+
+}
+.home-left p{
+    color: grey;
+}
+.home-left button{
+    background-color: #1D2256;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 8px;
+    margin-left: 4px;
+}
+.home-left input{
+    border-radius: 5px;
+    border: none;
+    width: 40%;
+    padding: 8px;
+}
+
+
+.trusted-by{
+    margin-top: 40px;
+}
+.trusted-by p{
+    color: rgb(83, 82, 82);
+    font-weight: bold;
+}
+.trusted-by img{
+    width: 20%;
+}
+
+.home-right {
+    /* border: 1px solid black; */
+    width: 40%;
+    height: 400px;
+    color: #1D2256;
+    text-align: center;
+    margin-top: 30px;
+    margin-right: 10px;
+}
+.note-card{
+    /* border: 1px solid black;/ */
+    text-align: center;
+    width: 70%;
+    margin: 20px auto;
+    box-shadow: 3px 3px 8px grey;
+    border-radius: 3%;
+    color: black;
+    padding-bottom: 10px;
+}
+.note-card img{
+    height: 220px;
+    width: 100%;
+    /* border: 1px solid black; */
+}
+
+.download-btn{
+    background-color: #1D2256;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    width: 60%;
+}
+
+/* Universal styling */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9fafc;
+  color: #1e1e2f;
+}
+
+/* SECTION 1 - Steps */
+.steps-section {
+  background-color: #061d3a;
+  color: white;
+  padding: 60px 40px;
+  text-align: center;
+   margin-top: 100px;
+}
+
+.steps-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.step-box {
+  background-color: #0f2a4f;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 280px;
+}
+
+.step-box h3 {
+  font-size: 2.5rem;
+  color: #3ab4f2;
+  margin-bottom: 10px;
+}
+
+/* SECTION 2 - Stats */
+.stats-section {
+  padding: 60px 40px;
+  text-align: center;
+  /* background-color: white; */
+}
+
+.small-header {
+  font-size: 0.8rem;
+  color: #777;
+  letter-spacing: 1px;
+}
+
+.stats-grid {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.stats-grid h3 {
+  font-size: 2rem;
+  color: #062d4f;
+  margin-bottom: 5px;
+}
+
+.why-unishare{
+  background-color: white;
+  padding: 60px;
+  width: 90%;
+  margin: 0px auto;
+  box-shadow: 5px 5px 11px grey;
+  margin-bottom: 100px;
+}
+.whyuni{
+  display: flex;
+  color: #061d3a;
+}
+.feature-cards{
+  display: flex;
+  margin-top: 60px;
+    text-align: center;
+}
+.tagline{
+  padding: 20px 0 0 50px;
+  margin-left: 40px;
+  font-weight: 500;
+}
+
+.feature-cards p{
+  color: #061d3a;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.feature-card {
+  padding: 10px;
+}
+
+/* ============ RESPONSIVENESS ============ */
+
+/* Home Section */
+@media (max-width: 768px) {
+  .home {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .home-left, .home-right {
+    width: 100% !important;
+    height: auto;
+    padding: 20px;
+  }
+
+  .home-left input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .home-left button {
+    width: 100%;
+  }
+
+  .trusted-by img {
+    width: 40%;
+    margin-bottom: 10px;
+  }
+
+  .note-card {
+    width: 90%;
+  }
+
+  .download-btn {
+    width: 100%;
+  }
+}
+
+/* Steps Section */
+@media (max-width: 768px) {
+  .steps-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .step-box {
+    width: 90%;
+  }
+}
+
+/* Stats Section */
+@media (max-width: 768px) {
+  .stats-grid {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+/* Why UniShare Section */
+@media (max-width: 768px) {
+  .whyuni {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .tagline {
+    padding: 0;
+    margin: 0;
+  }
+
+  .feature-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .feature-card {
+    width: 90%;
+  }
+}
+
+
+.slide-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+.slide-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+
+    <!-- Left: Logo -->
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="/Images/u-removebg-preview.png" width="40" height="30" class="d-inline-block align-top" alt="">
+      <span class="ms-2">UNISHARE</span>
+    </a>
+
+    <!-- Toggler (always on right) -->
+    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCenter"
+      aria-controls="navbarCenter" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Centered Links (collapsible) -->
+    <div class="collapse navbar-collapse justify-content-center" id="navbarCenter">
+      <ul class="navbar-nav">
+        <li class="nav-item mx-3">
+          <a class="nav-link active" href="/home" style="color: darkblue;">Home</a>
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link" href="/contact">Contact</a>
+        </li>
+          <%if(currUser && currUser.isVerified){%>
+        <li class="nav-item mx-3">
+          <a class="nav-link" href="/notes/upload">Upload</a>
+        </li> 
+         <li class="nav-item mx-3">
+          <a class="nav-link" href="/profile/myProfile">My Profile</a>
+        </li> 
+          <%}%>
+        <li class="nav-item mx-3">
+          <a class="nav-link" href="/notes">Notes</a>
+        </li>
+        <% if (currUser && currUser.isAdmin) { %>
+        <li class="nav-item mx-3">
+          <a class="nav-link" href="/admin/dashboard">Dashboard</a>
+        </li>
+        <% } %>
+
+        <li class="nav-item dropdown mx-3">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            Account
+          </a>
+          <ul class="dropdown-menu">
+            <% if (!currUser) { %>
+            <li><a class="dropdown-item" href="/user/login">Login</a></li>
+            <li><a class="dropdown-item" href="/user/signup">Sign Up</a></li>
+            <% } else { %>
+            <li><a class="dropdown-item" href="/profile">Profile</a></li>
+            <li><a class="dropdown-item" href="/user/logout">Logout</a></li>
+            <% } %>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</nav>

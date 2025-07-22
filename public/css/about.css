@@ -1,0 +1,39 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.about-hero {
+  background-color: #001f3f;
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.about-content {
+  /* max-width: 800px; */
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.about-content h2 {
+  margin-top: 30px;
+  color: #001f3f;
+}
+
+.about-content ul {
+  padding-left: 20px;
+}
+
+body {
+  opacity: 1;
+  transition: opacity 0.4s ease-in-out;
+}
+
+body.fade-out {
+  opacity: 0;
+}
+

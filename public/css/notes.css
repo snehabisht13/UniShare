@@ -1,0 +1,88 @@
+body {
+  background-color: #f7f9fc;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  font-weight: 700;
+  color: #333;
+}
+
+.note-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 12px;
+}
+
+.note-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  object-fit: cover;
+  height: 200px;
+}
+
+.card-body {
+  padding: 1.2rem;
+}
+
+.card-title {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  color: #6c757d;
+}
+
+.btn:hover{
+    color: black;
+    background-color: white;
+}
+ a{
+  text-decoration: none;
+ }
+ 
+ a:hover{
+   text-decoration: underline;
+ }
+
+ .rating-overlay {
+  padding: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  transition: 0.3s ease;
+  z-index: 2;
+  display: bloc;
+}
+
+.rating-overlay p{
+  color: white;
+}
+.note-card:hover .rating-overlay {
+  opacity: 1;
+}
+
+.star-rating i {
+  font-size: 1.5rem;
+  color: #ccc;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+
+
+.star-rating i.hovered,
+.star-rating i.selected {
+  color: gold;
+}
