@@ -20,14 +20,23 @@ const chatRouter = require('./routes/chat');
 const app = express();
 
 const dbUrl = process.env.ATLASDB_URL;
-main() 
-.then(() => { console.log("Connected to mongodb") })
-.catch(err => { console.error("cannot connect as: ", err) });
-
-async function main() {
+async function startServer() {
+  try {
     await mongoose.connect(dbUrl);
+
+    console.log("Connected to MongoDB");
+
+    const PORT = process.env.PORT || 1000;
+
+    app.listen(PORT, "0.0.0.0", () => {
+      console.log(`Server is listening on port ${PORT}`);
+    });
+
+  } catch (err) {
+    console.error("Cannot connect to MongoDB:", err);
+    process.exit(1);
+  }
 }
-   
 
 app.set("view engine", "ejs"); // for ejs files
 app.use(express.urlencoded({ extended: true })); //json format
@@ -137,7 +146,5 @@ app.use((req, res) => {
     res.status(404).send("Page not found");
 });
 
-app.listen(1000, () => {
-    console.log("Server is listening to http://localhost:1000")
-});
+startServer();
 
