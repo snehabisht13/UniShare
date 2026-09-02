@@ -31,7 +31,8 @@ const notesSchema = new mongoose.Schema({
             },
             rating: Number
         }
-    ]
+    ],
+    notesYear: Number
 });
 
 module.exports = mongoose.model('Note', notesSchema);

@@ -14,6 +14,7 @@ const otpStore = {};
 module.exports.sendOTP = async (req, res) => {
     const { email } = req.body;
     const otp = Math.floor(100000 + Math.random() * 900000).toString(); // 6-digit OTP
+    console.log(otp);
 
     // Save OTP (add expiry if needed)
     otpStore[email] = {

@@ -36,8 +36,6 @@ const uploadThumbnailToCloudinary = (filebuffer) => {
 };
 
 const uploadhandler = async (req, res) => {
-    // Debugging the uploaded files
-    console.log('Uploaded files:', req.files);
 
     // Check if files are in the request
     if (!req.files || !req.files['newfile']) {
@@ -86,8 +84,6 @@ const uploadhandler = async (req, res) => {
                 notesYear: req.body.notesYear,
             });
 
-            console.log("Note created");
-            console.log(thumbnailUrl); // Debug thumbnail URL
 
             await newNote.save();
             return res.redirect('/notes');
