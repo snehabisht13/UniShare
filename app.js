@@ -24,7 +24,7 @@ async function startServer() {
   try {
     await mongoose.connect(dbUrl);
 
-    console.log("Connected to MongoAtlas");
+    console.log("Connected to MongoDB");
 
     const PORT = process.env.PORT || 1000;
 
