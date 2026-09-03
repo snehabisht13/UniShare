@@ -89,6 +89,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/", async (req, res) => {
+    console.log("inside home page rendering");
     try {
         const message = req.session.message || ' ';
         const type = req.session.type || ' ';
