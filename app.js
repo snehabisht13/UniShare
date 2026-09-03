@@ -20,6 +20,16 @@ const chatRouter = require('./routes/chat');
 const app = express();
 
 const dbUrl = process.env.ATLASDB_URL;
+try {
+    const url = new URL(dbUrl);
+
+    console.log("MongoDB username:", decodeURIComponent(url.username));
+    console.log("MongoDB host:", url.hostname);
+    console.log("MongoDB authSource:", url.searchParams.get("authSource"));
+} catch (err) {
+    console.log("Invalid MongoDB URL");
+}
+
 async function startServer() {
   try {
     console.log("ATLAS URL exists:", !!process.env.ATLASDB_URL);
