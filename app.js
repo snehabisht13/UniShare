@@ -22,6 +22,8 @@ const app = express();
 const dbUrl = process.env.ATLASDB_URL;
 async function startServer() {
   try {
+    console.log("ATLAS URL exists:", !!process.env.ATLASDB_URL);
+    console.log("ATLAS URL:", process.env.ATLASDB_URL?.replace(/\/\/.*?:.*?@/, "//***:***@"));
     await mongoose.connect(dbUrl);
 
     console.log("Connected to MongoDB");
